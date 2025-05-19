@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .result {
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>你喜歡哪一個？</h1>
+    <div class="option" onclick="vote('cat')">
+        <img src="./images/cat.jfif" alt="cat">
+        <p>Cat</p>
+    </div>
+
+    <div class="option" onclick="vote('dog')">
+        <img src="./images/dog.jfif" alt="dog">
+        <p>Dog</p>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function vote(animal){
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "result.php");
+
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.onload = function(){
+                document.getElementById("result").textContent = xhr.responseText;
+            };
+
+            xhr.send("animal=" + animal);
+        }
+
+        window.onload = () => vote("");
+    </script>
+</body>
+</html>
