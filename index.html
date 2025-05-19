@@ -1,27 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<a href="./new.html">新友蔡<a/>
-     <title>你好</title>
+    <style>
+        .result {
+            margin-top: 30px;
+            font-size: 1.2em;
+        }
+    </style>
 </head>
 <body>
-<a href="Resume.pdf" download="re.pdf">自我介紹<a/>
-<p><a href=" https://x.com/?mx=2"> x</a></p>
-<hr>
+    <h1>你喜歡哪一個？</h1>
+    <div class="option" onclick="vote('cat')">
+        <img src="./images/cat.jfif" alt="cat">
+        <p>Cat</p>
+    </div>
+
+    <div class="option" onclick="vote('dog')">
+        <img src="./images/dog.jfif" alt="dog">
+        <p>Dog</p>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function vote(animal){
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "result.php");
+
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.onload = function(){
+                document.getElementById("result").textContent = xhr.responseText;
+            };
+
+            xhr.send("animal=" + animal);
+        }
+
+        window.onload = () => vote("");
+    </script>
 </body>
-<boby>
-     <p><a href="https://zh.wikipedia.org/zh-tw/%E9%98%BF%E9%81%93%E5%A4%AB%C2%B7%E5%B8%8C%E7%89%B9%E5%8B%92"><img src="下載.jfif"></a></p>
-     <h1>
-     阿道夫·希特勒，德國政治人物，納粹黨領袖，1933年至1945年擔任德國總理，1934年至1945年兼任元首。1939年9月發動波蘭戰役，導致第二次世界大戰在歐洲爆發。希特勒是納粹大屠殺的主要策劃者、發動者，有證據顯示他知曉並下達了對猶太人的屠殺命令。</h1> 
-    
-</ul>
-</boby>    
-<ul>100
-     <li>1000</li>
-</ul>
-<video width="900" title="土撥鼠" controls="controls">
-<source src="videoplayback.mp4" type="video/mp4">
-</video>
-<iframe width="560"  height="503" src="https://www.youtube.com/embed/C5zTO4nhXl4" title="土撥鼠尖叫（原版）" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.4929302587293!2d121.537176875376!3d25.01734047782718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a989fe322ea9%3A0x21750404ee1d7f66!2z5ZyL56uL6Ie654Gj5aSn5a24!5e0!3m2!1szh-TW!2stw!4v1741600628233!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </html>
