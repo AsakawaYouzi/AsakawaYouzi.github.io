@@ -101,28 +101,29 @@
 
     /* 輪播區塊樣式 */
     .carousel {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: nowrap; /* ✅ 防止折行 */
+  max-width: 800px;   /* ✅ 控制整體寬度 */
+  margin: 0 auto;
+}
 
-    .carousel-content {
-      max-width: 700px;
-      text-align: center;
-      margin: 0 auto;
-    }
+.carousel-content {
+  width: 700px; /* ✅ 與圖片寬度一致 */
+  text-align: center;
+}
 
-    .carousel img {
-      width: 700px;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 3px solid #1abc9c;
-      display: block;
-      margin: 0 auto 1rem auto;
-    }
+.carousel img {
+  width: 700px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid #1abc9c;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
 
     .carousel button {
       font-size: 1.5rem;
@@ -184,6 +185,7 @@
     <nav>
       <a href="#intro">自我介紹</a>
       <a href="#hobby">個人愛好</a>
+       <a href="#travel">旅遊日記</a>
       <a href="#future">未來期許</a>
     </nav>
   </header>
