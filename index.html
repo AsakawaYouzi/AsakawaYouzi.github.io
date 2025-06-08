@@ -203,6 +203,12 @@
        <a href="#travel">旅遊日記</a>
       <a href="#future">未來期許</a>
     </nav>
+    <!-- 背景音樂播放器 -->
+<audio id="bgm" controls loop>
+  <source src="bgm.mp3" type="audio/mpeg">
+  您的瀏覽器不支援音樂播放。
+</audio>
+
   </header>
 
   <!--  自我介紹 -->
@@ -313,6 +319,16 @@
   setInterval(() => {
     changeTravelSlide(1);
   }, 5000);
+// 顯示按鈕的邏輯
+window.onscroll = function () {
+  document.getElementById("topBtn").style.display =
+    document.documentElement.scrollTop > 300 ? "block" : "none";
+};
+
+// 滑動回頂部
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 
 
   </script>
@@ -322,6 +338,8 @@
   <p>點擊以下按鈕即可下載我的個人檔案 </p>
   <a href="個人檔案.zip" download class="download-btn"> 下載我的檔案</a>
 </section>
+<!-- 回到頂部按鈕 -->
+<button onclick="scrollToTop()" id="topBtn" title="回到頂部">⬆</button>
 
 </body>
 </html>
