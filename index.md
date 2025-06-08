@@ -1,45 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Asakawa Youzi</title>
-  <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      margin: 0;
-      padding: 2rem;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 1rem;
-    }
-    .link-button {
-      display: inline-block;
-      margin: 0.5rem;
-      padding: 0.5rem 1rem;
-      background-color: #007acc;
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-    .link-button:hover {
-      background-color: #005fa3;
-    }
-  </style>
-</head>
-<body>
-  <h1>Hello, I’m Asakawa Youzi</h1>
-  <p>Welcome to my personal website!<br>I'm passionate about coding, creativity, and building things that matter.</p>
-  <a href="https://github.com/AsakawaYouzi" class="link-button">My GitHub</a>
-  <a href="mailto:your-email@example.com" class="link-button">Contact Me</a>
-</body>
-</html>
+---
+title: 嗨，我是 Asakawa Youzi
+layout: default
+---
+
+# 🌙 Asakawa Youzi
+
+歡迎來到我的小小網頁空間。  
+我喜歡創作、簡潔的設計，還有建立有意義的事物。
+
+---
+
+## 🧠 關於我
+
+- 💻 熱愛寫程式、自動化重複工作
+- 🌸 喜歡安靜的美學與有情感的文字
+- 🧃 時常鑽研工具、調整使用環境
+
+---
+
+## 🌐 聯絡方式
+
+- [GitHub](https://github.com/AsakawaYouzi)
+- [電子信箱](mailto:your-email@example.com)
+
+---
+
+> 「慢慢築起的東西也能閃耀，  
+> 溫柔選擇的力量並不微弱。」
