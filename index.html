@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AsakawaYouzi</title>
+  <title>Asakawa Youzi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    /* 頁面基本字體與樣式設定 */
+    html {
+      scroll-behavior: smooth; /* 滑動時平滑過渡 */
+    }
+
     body {
       background-color: #2c3e50;
       color: #ecf0f1;
@@ -14,6 +19,7 @@
       line-height: 1.6;
     }
 
+    /* 頁首樣式 */
     header {
       text-align: center;
       padding: 2.5rem 1rem;
@@ -24,6 +30,26 @@
       margin-bottom: 0.5rem;
     }
 
+    /* 導覽列樣式 */
+    nav {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    nav a {
+      color: #1abc9c;
+      margin: 0 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: #ecf0f1;
+    }
+
+    /* 區塊外觀統一設定 */
     .section {
       padding: 2rem 1rem;
       max-width: 800px;
@@ -37,6 +63,7 @@
       margin-bottom: 1rem;
     }
 
+    /* 自我介紹區塊樣式 */
     .intro {
       display: flex;
       flex-direction: column;
@@ -52,6 +79,7 @@
       border: 4px solid #1abc9c;
     }
 
+    /* 超連結樣式 */
     a {
       color: #3498db;
       text-decoration: none;
@@ -61,6 +89,7 @@
       text-decoration: underline;
     }
 
+    /* 自我介紹在寬螢幕上橫向排列 */
     @media (min-width: 600px) {
       .intro {
         flex-direction: row;
@@ -74,6 +103,7 @@
       }
     }
 
+    /* 輪播區塊樣式 */
     .carousel {
       display: flex;
       align-items: center;
@@ -110,74 +140,81 @@
     }
   </style>
 </head>
+
 <body>
 
+  <!-- 頁首標題與導覽列 -->
   <header>
     <h1>Asakawa Youzi</h1>
-    
+
+    <!-- 導覽列：點擊會滑動到對應區塊 -->
+    <nav>
+      <a href="#intro">自我介紹</a>
+      <a href="#hobby">個人愛好</a>
+      <a href="#future">未來期許</a>
+    </nav>
   </header>
 
-  <section class="section">
+  <!-- 👤 自我介紹區塊 -->
+  <section class="section" id="intro">
     <h2>👤 自我介紹</h2>
     <div class="intro">
+      <!-- 頭像圖片 -->
       <img src="your-image.jpg" alt="Profile Picture">
+
+      <!-- 文字區塊 -->
       <div>
-        <p>嗨，我是陳霈璋</p>
-         
-        <p>目前就讀台東大學綠資系</p>
+        <p>嗨，我是陳霈璋。</p>
+        <p>目前就讀台東大學綠資系。</p>
+        <p>參加東舞社並擔任器材。</p>
 
-         <p>參加東舞社並擔任器材</p>
+        <!-- 聯絡資訊 -->
         <p>
-Gmail ：<a href="mailto:whatt1004@gmail.com">yourname@gmail.com</a><br>
-Instagram：<a href="https://www.instagram.com/_cgen_0710/" target="_blank">@_chen_0710</a>
-</p>
-        
-
+          Gmail ：<a href="mailto:whatt1004@gmail.com">whatt1004@gmail.com</a><br>
+          Instagram：<a href="https://www.instagram.com/_cgen_0710/" target="_blank">@_chen_0710</a>
+        </p>
       </div>
     </div>
   </section>
 
-  <section class="section">
+  <!-- 🎨 個人愛好區塊 -->
+  <section class="section" id="hobby">
     <h2>🎨 個人愛好</h2>
     <div class="carousel">
+      <!-- 左箭頭 -->
       <button class="prev" onclick="changeSlide(-1)">←</button>
+
+      <!-- 內容區：圖片 + 描述 -->
       <div class="carousel-content">
         <img id="hobby-image" src="hobby1.jpg" alt="Hobby Image">
-      <p id="hobby-description">閱讀小說。</p>
-
+        <p id="hobby-description">閱讀小說。</p>
       </div>
+
+      <!-- 右箭頭 -->
       <button class="next" onclick="changeSlide(1)">→</button>
     </div>
   </section>
 
-  <section class="section">
+  <!-- 🌱 未來期許區塊 -->
+  <section class="section" id="future">
     <h2>🌱 未來期許</h2>
     <p>成功畢業，不要被延畢。</p>
-    <p>能考上研究所爽領百萬年薪</p>
+    <p>能考上研究所，爽領百萬年薪 🤑</p>
   </section>
 
+  <!-- 切換圖片與文字的 JavaScript -->
   <script>
+    // 定義每張圖片與對應文字
     const images = [
-      {
-        src: "hobby1.jpg",
-        text: "閱讀小說。"
-      },
-      {
-        src: "hobby2.jpg",
-        text: "打遊戲"
-      },
-      {
-        src: "hobby3.jpg",
-        text: "騎車"
-      },
-      {
-        src: "hobby4.jpg",
-        text: "跳舞"
-      }
+      { src: "hobby1.jpg", text: "閱讀小說。" },
+      { src: "hobby2.jpg", text: "打遊戲。" },
+      { src: "hobby3.jpg", text: "騎車。" },
+      { src: "hobby4.jpg", text: "跳舞。" }
     ];
 
-    let currentSlide = 0;
+    let currentSlide = 0; // 當前圖片索引
 
+    // 改變圖片與描述
     function changeSlide(direction) {
       currentSlide = (currentSlide + direction + images.length) % images.length;
       document.getElementById("hobby-image").src = images[currentSlide].src;
@@ -187,4 +224,3 @@ Instagram：<a href="https://www.instagram.com/_cgen_0710/" target="_blank">@_ch
 
 </body>
 </html>
-
