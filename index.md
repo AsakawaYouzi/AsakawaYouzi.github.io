@@ -21,7 +21,7 @@ layout: default
 ## 🌐 聯絡方式
 
 - [GitHub](https://github.com/AsakawaYouzi)
-- [電子信箱](mailto:your-email@example.com)
+- [電子信箱](whatt1004@gmail.com)
 
 ---
 
