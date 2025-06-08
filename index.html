@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Asakawa Youzi</title>
+  <title>個人簡介</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     html {
@@ -188,9 +188,9 @@
     </nav>
   </header>
 
-  <!-- 👤 自我介紹 -->
+  <!--  自我介紹 -->
   <section class="section" id="intro">
-    <h2>👤 自我介紹</h2>
+    <h2> 自我介紹</h2>
     <div class="intro">
       <img src="me.jpg" alt="Profile Picture">
       <div>
@@ -205,9 +205,9 @@
     </div>
   </section>
 
-  <!-- 🎨 個人愛好 -->
+  <!--  個人愛好 -->
   <section class="section" id="hobby">
-    <h2>🎨 個人愛好</h2>
+    <h2> 個人愛好</h2>
     <div class="carousel">
       <button class="prev" onclick="changeSlide(-1)">←</button>
       <div class="carousel-content">
@@ -217,9 +217,9 @@
       <button class="next" onclick="changeSlide(1)">→</button>
     </div>
   </section>
-  <!-- 🧳 旅遊日記區塊 -->
+  <!--  旅遊日記區塊 -->
 <section class="section" id="travel">
-  <h2>🧳 旅遊日記</h2>
+  <h2> 旅遊日記</h2>
   <div class="slideshow-container">
     <img class="travel-slide" src="travel1.jpg" alt="Travel Photo">
     <p class="travel-caption" id="travel-caption">🌊 台東海岸線騎車之旅</p>
@@ -231,14 +231,14 @@
 </section>
 
 
-  <!-- 🌱 未來期許 -->
+  <!-- 未來期許 -->
   <section class="section" id="future">
-    <h2>🌱 未來期許</h2>
+    <h2> 未來期許</h2>
     <p>希望順利畢業，不被延畢。</p>
     <p>能考上研究所，實現百萬年薪夢 🤑</p>
   </section>
 
-  <!-- JavaScript 圖片切換 -->
+  <!--圖片切換 -->
   <script>
     const images = [
       {
@@ -267,7 +267,7 @@
       document.getElementById("hobby-description").innerText = images[currentSlide].text;
     }
    
-  // 原本 hobby 的程式碼保持不變...
+  
 
   // 旅遊日記圖片與說明
   const travelImages = [
@@ -278,10 +278,21 @@
 
   let currentTravel = 0;
 
+ function showTravelSlide(index) {
+    const slide = document.querySelector(".travel-slide");
+    const caption = document.getElementById("travel-caption");
+    slide.src = travelImages[index].src;
+    caption.innerText = travelImages[index].caption;
+  }
+
   function changeTravelSlide(direction) {
     currentTravel = (currentTravel + direction + travelImages.length) % travelImages.length;
-    document.querySelector(".travel-slide").src = travelImages[currentTravel].src;
-    document.getElementById("travel-caption").innerText = travelImages[currentTravel].caption;
+    showTravelSlide(currentTravel);
+  }
+
+  // 自動切換圖片
+  setInterval(() => {
+    changeTravelSlide(1);
   }
 
 
