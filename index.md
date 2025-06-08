@@ -1,9 +1,9 @@
 ---
-title: 嗨，我是 Asakawa Youzi
+title: 嗨，我是 陳霈璋
 layout: default
 ---
 
-# 🌙 Asakawa Youzi
+# 🌙陳霈璋
 
 歡迎來到我的小小網頁空間。  
 我喜歡創作、簡潔的設計，還有建立有意義的事物。
