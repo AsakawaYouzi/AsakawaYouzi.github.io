@@ -5,56 +5,175 @@
   <title>Asakawa Youzi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    /* 模仿 Midnight 主題風格 */
     body {
       background-color: #2c3e50;
       color: #ecf0f1;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 0;
-      padding: 3rem 1rem;
-      text-align: center;
+      padding: 0;
+      line-height: 1.6;
     }
 
-    h1 {
-      font-size: 2.5rem;
+    header {
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      color: #1abc9c;
+      border-bottom: 2px solid #34495e;
+      padding-bottom: 0.3rem;
       margin-bottom: 1rem;
     }
 
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
+    .intro {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .intro img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 4px solid #1abc9c;
     }
 
     a {
       color: #3498db;
       text-decoration: none;
-      font-weight: bold;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    .button {
-      display: inline-block;
-      background-color: #3498db;
-      color: white;
-      padding: 0.5rem 1rem;
-      margin-top: 1rem;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background 0.3s ease;
+    @media (min-width: 600px) {
+      .intro {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 2rem;
+      }
+
+      .intro img {
+        margin-bottom: 0;
+      }
     }
 
-    .button:hover {
-      background-color: #2980b9;
+    .carousel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .carousel-content {
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .carousel img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 3px solid #1abc9c;
+      margin-bottom: 1rem;
+    }
+
+    .carousel button {
+      font-size: 1.5rem;
+      background-color: #34495e;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .carousel button:hover {
+      background-color: #1abc9c;
     }
   </style>
 </head>
 <body>
-  <h1>👋 Hello, I’m Asakawa Youzi</h1>
-  <p>Welcome to my personal site. I like building, writing, and dreaming under dark skies.</p>
-  <a href="https://github.com/AsakawaYouzi" class="button">Visit my GitHub</a>
+
+  <header>
+    <h1>Asakawa Youzi</h1>
+    <p>Welcome to my personal page</p>
+  </header>
+
+  <section class="section">
+    <h2>👤 自我介紹</h2>
+    <div class="intro">
+      <img src="your-image.jpg" alt="Profile Picture">
+      <div>
+        <p>嗨，我是 Asakawa Youzi，一個熱愛創作與學習的人。喜歡在靜謐的深夜思考，在文字與程式中尋找靈感。</p>
+        <p>目前正探索前端開發與人工智慧的交會點，希望未來能打造更具情感與美感的互動體驗。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🎨 個人愛好</h2>
+    <div class="carousel">
+      <button class="prev" onclick="changeSlide(-1)">←</button>
+      <div class="carousel-content">
+        <img id="hobby-image" src="hobby1.jpg" alt="Hobby Image">
+        <p id="hobby-description">📚 閱讀小說與哲學，特別是喜歡沈浸在東亞文學的想像中。</p>
+      </div>
+      <button class="next" onclick="changeSlide(1)">→</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🌱 未來期許</h2>
+    <p>我希望成為一個能整合感性與技術的創作者。</p>
+    <p>未來我想投入於 AI 體驗設計、故事化介面開發，或許還能出版一本獨立小說。讓作品成為與他人連結的橋樑，是我持續努力的動力。</p>
+  </section>
+
+  <script>
+    const images = [
+      {
+        src: "hobby1.jpg",
+        text: "📚 閱讀小說與哲學，特別是喜歡沈浸在東亞文學的想像中。"
+      },
+      {
+        src: "hobby2.jpg",
+        text: "🎧 聽音樂，尤其喜歡冷門女聲與環境氛圍電子。"
+      },
+      {
+        src: "hobby3.jpg",
+        text: "🎮 遊玩獨立遊戲，像是解謎與劇情導向的作品。"
+      },
+      {
+        src: "hobby4.jpg",
+        text: "🖋️ 書寫屬於自己的宇宙與角色，構思世界觀。"
+      }
+    ];
+
+    let currentSlide = 0;
+
+    function changeSlide(direction) {
+      currentSlide = (currentSlide + direction + images.length) % images.length;
+      document.getElementById("hobby-image").src = images[currentSlide].src;
+      document.getElementById("hobby-description").innerText = images[currentSlide].text;
+    }
+  </script>
+
 </body>
 </html>
