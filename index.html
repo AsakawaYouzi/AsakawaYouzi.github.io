@@ -220,7 +220,43 @@
   list-style-type: square;
 }
 
-    
+.timeline {
+  position: relative;
+  margin: 2rem 0;
+  padding-left: 2rem;
+  border-left: 3px solid #1abc9c;
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: #1abc9c;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content {
+  background-color: #34495e;
+  padding: 1rem;
+  border-radius: 8px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 0.4rem;
+  width: 16px;
+  height: 16px;
+  background-color: #1abc9c;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
   </style>
 </head>
 
@@ -232,6 +268,7 @@
     <nav>
       <a href="#intro">自我介紹</a>
        <a href="#skills">專長&成就</a>
+      <a href="#timeline">時間軸</a>
       <a href="#hobby">個人愛好</a>
        <a href="#travel">旅遊日記</a>
       <a href="#future">未來期許</a>
@@ -273,6 +310,42 @@
   </ul>
 </section>
 
+<section class="section" id="timeline">
+  <h2>個人成長時間軸</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-date">2023/9</div>
+      <div class="timeline-content">
+        <h3>進入台東大學</h3>
+        <p>選擇綠資系，踏上探索自然與永續的學習之旅。</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2024/1</div>
+      <div class="timeline-content">
+        <h3>加入東舞社</h3>
+        <p>投入街舞、擔任器材，與社團夥伴一同成長、練舞表演。</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2024/5</div>
+      <div class="timeline-content">
+         <h3>加入系學會</h3>
+        <p>開始幫助舉辦系上活動。</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-date">2025</div>
+      <div class="timeline-content">
+       
+        <h3>專題報告獲獎</h3>
+        <p>以EKF主題為題，參與比賽並獲得肯定。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
   <!--  個人愛好 -->
   <section class="section" id="hobby">
     <h2> 個人愛好</h2>
