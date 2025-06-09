@@ -4,195 +4,97 @@
   <meta charset="UTF-8">
   <title>個人簡介</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-     html {
+<style>
+    /* 設定 HTML 平滑滾動效果 */
+    html {
       scroll-behavior: smooth;
     }
+
+    /* 設定全站背景、字型與排版樣式 */
     body {
-      background-color: #2c3e50;
-      color: #ecf0f1;
+      background-color: #2c3e50; /* 深藍背景 */
+      color: #ecf0f1;             /* 淺色文字 */
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
       line-height: 1.6;
     }
+
+    /* 頁首樣式 */
     header {
       text-align: center;
       padding: 2.5rem 1rem;
     }
+
+    /* 頁首標題樣式 */
     header h1 {
       font-size: 2.8rem;
       margin-bottom: 0.5rem;
     }
+
+    /* 導覽列樣式 */
     nav {
       text-align: center;
       margin-bottom: 1rem;
     }
+
+    /* 導覽列連結樣式 */
     nav a {
-      color: #1abc9c;
+      color: #1abc9c;            /* 青綠色字體 */
       margin: 0 1rem;
       font-weight: bold;
       text-decoration: none;
       font-size: 1.1rem;
     }
+
+    /* 滑鼠滑過連結時改變樣式 */
     nav a:hover {
       text-decoration: underline;
       color: #ecf0f1;
     }
+
+    /* 區塊共用樣式 */
     .section {
       padding: 2rem 1rem;
       max-width: 800px;
       margin: 0 auto;
     }
+
+    /* 區塊標題樣式 */
     .section h2 {
       color: #1abc9c;
-      border-bottom: 2px solid #34495e;
+      border-bottom: 2px solid #34495e; /* 底線 */
       padding-bottom: 0.3rem;
       margin-bottom: 1rem;
     }
-    .intro {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .intro img {
-      width: 180px;
-      height: auto;
-      object-fit: contain;
-      margin-bottom: 1rem;
-      border: 4px solid #1abc9c;
-      border-radius: 0;
-    }
-    @media (min-width: 600px) {
-      .intro {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-        gap: 2rem;
-      }
-      .intro img {
-        margin-bottom: 0;
-      }
-    }
-    .carousel {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: nowrap;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .carousel-content {
-      width: 700px;
-      text-align: center;
-    }
-    .carousel img {
-      width: 700px;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 3px solid #1abc9c;
-      display: block;
-      margin: 0 auto 1rem auto;
-    }
-    .carousel button {
-      font-size: 1.5rem;
-      background-color: #34495e;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .carousel button:hover {
-      background-color: #1abc9c;
-    }
-    .slideshow-container {
-      text-align: center;
-    }
-    .travel-slide {
-      width: 100%;
-      max-width: 700px;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 12px;
-      border: 3px solid #1abc9c;
-      margin-bottom: 1rem;
-    }
-    .travel-caption {
-      font-size: 1.1rem;
-      color: #ecf0f1;
-      margin-bottom: 1rem;
-    }
-    .slideshow-buttons button {
-      font-size: 1.2rem;
-      background-color: #34495e;
-      color: white;
-      border: none;
-      padding: 0.4rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      margin: 0 0.3rem;
-    }
-    .slideshow-buttons button:hover {
-      background-color: #1abc9c;
-    }
-    .download-btn {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      background-color: #1abc9c;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      margin-top: 1rem;
-      transition: background-color 0.3s ease;
-    }
-    .download-btn:hover {
-      background-color: #16a085;
-    }
-    #topBtn {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-      font-size: 20px;
-      border: none;
-      outline: none;
-      background-color: #1abc9c;
-      color: white;
-      cursor: pointer;
-      padding: 0.6rem 1rem;
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-    #topBtn:hover {
-      background-color: #16a085;
-      transform: scale(1.1);
-    }
+
+    /* 時間軸主框線 */
     .timeline {
       position: relative;
       margin: 2rem 0;
-      border-left: 3px solid #1abc9c;
+      border-left: 3px solid #1abc9c; /* 左側主軸線 */
       padding-left: 2rem;
     }
+
+    /* 每個時間項目 */
     .timeline-item {
       display: flex;
-      align-items: flex-start;
+      align-items: center;       /* 與圓點對齊 */
       gap: 1rem;
       position: relative;
       margin-bottom: 2rem;
     }
+
+    /* 時間日期文字 */
     .timeline-date {
-      width: 90px;
+      width: 90px;               /* 固定寬度 */
       flex-shrink: 0;
       font-weight: bold;
       color: #1abc9c;
-      margin-top: 0.4rem;
+      margin: 0;                 /* 垂直置中 */
     }
+
+    /* 時間項目內容框 */
     .timeline-content {
       background-color: #34495e;
       padding: 1rem;
@@ -200,18 +102,21 @@
       position: relative;
       flex: 1;
     }
+
+    /* 時間軸圓球設計 */
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -1.4rem;
-      top: 0.6rem;
+      left: -1.4rem;              /* 左偏移讓圓球在主軸上 */
+      top: 50%;
+      transform: translateY(-50%); /* 垂直置中 */
       width: 16px;
       height: 16px;
       background-color: #1abc9c;
-      border: 3px solid white;
-      border-radius: 50%;
+      border: 3px solid white;   /* 外框 */
+      border-radius: 50%;        /* 圓形 */
     }
-
+  </style>
   </style>
 </head>
 
