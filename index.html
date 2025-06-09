@@ -63,8 +63,7 @@
       padding-bottom: 0.3rem;
       margin-bottom: 1rem;
     }
-
-    /* === 時間軸 Timeline ========================= */
+/* === 時間軸 Timeline ========================= */
     /* 主容器：左側是一條青綠色時間軸線 */
     .timeline {
       position: relative;
@@ -80,11 +79,12 @@
     }
 
     /* 日期文字：與圓點對齊，並留出 0.5rem 的間隔 */
+        /* 日期文字：放在圓點右側，避免被遮住 */
     .timeline-date {
       font-weight: bold;
       color: #1abc9c;
-      margin-left: -1rem; /* 往左推回與主線靠近，但不被圓點覆蓋 */
-      margin-bottom: 0.5rem;
+      margin-left: 0.4rem; /* 讓文字緊貼主線右側，不再被圓點蓋到 */
+      margin-bottom: 0.4rem;
     }
 
     /* 事件內容卡片 */
@@ -96,11 +96,12 @@
     }
 
     /* 圓點 (before 偽元素)：置於主線上，並略微左移 */
+        /* 圓點：位於主線上（稍微右移讓主線居中），並垂直置中 */
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -1.6rem;  /* 調整水平位置：貼齊主線左側 */
-      top: 0.45rem;   /* 與日期文字垂直置中 */
+      left: -1rem;          /* 向右移動，避免碰到日期文字 */
+      top: 0.45rem;
       width: 16px;
       height: 16px;
       background-color: #1abc9c;
