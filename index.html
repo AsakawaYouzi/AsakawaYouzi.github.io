@@ -78,12 +78,13 @@
       margin-bottom: 3rem;
     }
 
-    /* 日期樣式：對齊時間點圓球，調整間距與顏色 */
+   /* 日期樣式：調整與圓圈對齊 */
     .timeline-date {
       font-weight: bold;
       color: #1abc9c;
-      margin-left: -1.5rem;
+      margin-left: -2.2rem;  /* 和圓圈左距相同 */
       margin-bottom: 0.5rem;
+      line-height: 1.5;
     }
 
     /* 時間事件的文字內容樣式 */
@@ -92,14 +93,15 @@
       padding: 1rem;
       border-radius: 8px;
       position: relative;
+      margin-top: 0.5rem;
     }
 
     /* 圓球設計：顯示在主軸上代表每個時間節點 */
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -2.05rem;
-      top: 0.4rem;
+      left: -2.2rem; /* 與 timeline-date 一致 */
+      top: 0.25rem;  /* 調整與文字垂直對齊 */
       width: 16px;
       height: 16px;
       background-color: #1abc9c;
