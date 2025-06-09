@@ -5,111 +5,71 @@
   <title>個人簡介</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
  <style>
-    /* 網頁滑動效果：讓錨點連結滾動更平滑 */
-    html {
-      scroll-behavior: smooth;
-    }
+  /* ================== 共用設定  =================== */
+  html { scroll-behavior: smooth; }
 
-    /* 全頁基本樣式設定，包括背景、文字顏色與字型 */
-    body {
-      background-color: #2c3e50;
-      color: #ecf0f1;
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
+  body {
+    background-color: #2c3e50;    /* 深藍背景 */
+    color: #ecf0f1;               /* 淺色文字 */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
 
-    /* 頁首區塊 */
-    header {
-      text-align: center;
-      padding: 2.5rem 1rem;
-    }
+  /* ================== 時間軸  ===================== */
+  /* 主線（左側青綠色） */
+  .timeline {
+    position: relative;
+    margin: 2rem 0;
+    border-left: 3px solid #1abc9c;
+    padding-left: 2.8rem;         /* 給日期與內容留些空間 */
+  }
 
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 0.5rem;
-    }
+  /* 每個事件容器 */
+  .timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+  }
 
-    /* 導覽列樣式 */
-    nav {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
+  /* === 日期文字 ===
+     - 固定寬度使年份齊頭
+     - 向左拉一點，避免被圓點覆蓋 */
+  .timeline-date {
+    width: 75px;
+    font-weight: bold;
+    color: #1abc9c;
+    margin-left: -2.3rem;         /* 與圓點保持 ~1rem 距離 */
+    margin-bottom: 0.5rem;
+  }
 
-    nav a {
-      color: #1abc9c;
-      margin: 0 1rem;
-      font-weight: bold;
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
+  /* === 事件卡片內容 === */
+  .timeline-content {
+    background-color: #34495e;
+    padding: 1rem;
+    border-radius: 8px;
+  }
 
-    nav a:hover {
-      text-decoration: underline;
-      color: #ecf0f1;
-    }
+  /* === 圓點節點 ===
+     - 貼在主線上 (left)
+     - translateY 讓圓點垂直置中在日期行 */
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -2.95rem;              /* 3px 主線 + 22px 圓點寬度/2 - 微調 */
+    top: 0.6rem;                 /* 與日期 baseline 對齊 */
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-color: #1abc9c;
+    border: 3px solid #2c3e50;   /* 用背景色當外框，避免遮字 */
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+</style>
 
-    /* 各主要區塊統一外觀 */
-    .section {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .section h2 {
-      color: #1abc9c;
-      border-bottom: 2px solid #34495e;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1rem;
-    }
-/* === 時間軸 Timeline ========================= */
-    /* 主容器：左側是一條青綠色時間軸線 */
-    .timeline {
-      position: relative;
-      margin: 2rem 0;
-      border-left: 3px solid #1abc9c;
-      padding-left: 2rem; /* 日期文字與主線的間距 */
-    }
-
-    /* 每一個節點容器 */
-    .timeline-item {
-      position: relative;
-      margin-bottom: 3rem;
-    }
-
-    /* 日期文字：與圓點對齊，並留出 0.5rem 的間隔 */
-        /* 日期文字：放在圓點右側，避免被遮住 */
-    .timeline-date {
-      font-weight: bold;
-      color: #1abc9c;
-      margin-left: 0.4rem; /* 讓文字緊貼主線右側，不再被圓點蓋到 */
-      margin-bottom: 0.4rem;
-    }
-
-    /* 事件內容卡片 */
-    .timeline-content {
-      background-color: #34495e;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-top: 0.4rem;
-    }
-
-    /* 圓點 (before 偽元素)：置於主線上，並略微左移 */
-        /* 圓點：位於主線上（稍微右移讓主線居中），並垂直置中 */
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -1rem;          /* 向右移動，避免碰到日期文字 */
-      top: 0.45rem;
-      width: 16px;
-      height: 16px;
-      background-color: #1abc9c;
-      border: 3px solid white;
-      border-radius: 50%;
-    }
   
-  </style>
+ 
 </head>
 
 <body>
