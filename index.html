@@ -4,29 +4,28 @@
   <meta charset="UTF-8">
   <title>個人簡介</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-    /* 設定 HTML 平滑滾動效果 */
+ <style>
+    /* 網頁滑動效果：讓錨點連結滾動更平滑 */
     html {
       scroll-behavior: smooth;
     }
 
-    /* 設定全站背景、字型與排版樣式 */
+    /* 全頁基本樣式設定，包括背景、文字顏色與字型 */
     body {
-      background-color: #2c3e50; /* 深藍背景 */
-      color: #ecf0f1;             /* 淺色文字 */
+      background-color: #2c3e50;
+      color: #ecf0f1;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       margin: 0;
       padding: 0;
       line-height: 1.6;
     }
 
-    /* 頁首樣式 */
+    /* 頁首區塊 */
     header {
       text-align: center;
       padding: 2.5rem 1rem;
     }
 
-    /* 頁首標題樣式 */
     header h1 {
       font-size: 2.8rem;
       margin-bottom: 0.5rem;
@@ -38,85 +37,76 @@
       margin-bottom: 1rem;
     }
 
-    /* 導覽列連結樣式 */
     nav a {
-      color: #1abc9c;            /* 青綠色字體 */
+      color: #1abc9c;
       margin: 0 1rem;
       font-weight: bold;
       text-decoration: none;
       font-size: 1.1rem;
     }
 
-    /* 滑鼠滑過連結時改變樣式 */
     nav a:hover {
       text-decoration: underline;
       color: #ecf0f1;
     }
 
-    /* 區塊共用樣式 */
+    /* 各主要區塊統一外觀 */
     .section {
       padding: 2rem 1rem;
       max-width: 800px;
       margin: 0 auto;
     }
 
-    /* 區塊標題樣式 */
     .section h2 {
       color: #1abc9c;
-      border-bottom: 2px solid #34495e; /* 底線 */
+      border-bottom: 2px solid #34495e;
       padding-bottom: 0.3rem;
       margin-bottom: 1rem;
     }
 
-    /* 時間軸主框線 */
+    /* 時間軸主容器：左側加上垂直綠色線 */
     .timeline {
       position: relative;
       margin: 2rem 0;
-      border-left: 3px solid #1abc9c; /* 左側主軸線 */
+      border-left: 3px solid #1abc9c;
       padding-left: 2rem;
     }
 
-    /* 每個時間項目 */
+    /* 每個時間事件容器 */
     .timeline-item {
-      display: flex;
-      align-items: center;       /* 與圓點對齊 */
-      gap: 1rem;
       position: relative;
-      margin-bottom: 2rem;
+      margin-bottom: 3rem;
     }
 
-    /* 時間日期文字 */
+    /* 日期樣式：對齊時間點圓球，調整間距與顏色 */
     .timeline-date {
-      width: 90px;               /* 固定寬度 */
-      flex-shrink: 0;
       font-weight: bold;
       color: #1abc9c;
-      margin: 0;                 /* 垂直置中 */
+      margin-left: -1.5rem;
+      margin-bottom: 0.5rem;
     }
 
-    /* 時間項目內容框 */
+    /* 時間事件的文字內容樣式 */
     .timeline-content {
       background-color: #34495e;
       padding: 1rem;
       border-radius: 8px;
       position: relative;
-      flex: 1;
     }
 
-    /* 時間軸圓球設計 */
+    /* 圓球設計：顯示在主軸上代表每個時間節點 */
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -1.4rem;              /* 左偏移讓圓球在主軸上 */
-      top: 50%;
-      transform: translateY(-50%); /* 垂直置中 */
+      left: -2.05rem;
+      top: 0.4rem;
       width: 16px;
       height: 16px;
       background-color: #1abc9c;
-      border: 3px solid white;   /* 外框 */
-      border-radius: 50%;        /* 圓形 */
+      border: 3px solid white;
+      border-radius: 50%;
     }
-  </style>
+  
   </style>
 </head>
 
